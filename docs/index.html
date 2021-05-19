@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +48,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#section5">Section 5</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#getting-started">Getting started</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#comments">Comments</a>
                     </li>
                 </ul>
                 <a class="btn btn-outline-primary my-3" href="#" role="button">My Button</a>
@@ -213,6 +221,12 @@
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        {% for section in site.sections %}
+            {{ section.content }}
+        {% endfor %}
+
+        <p class="text-center small my-5">Gavin Wiggins © 2021</p>
     </div>
 </div>
 </div>
