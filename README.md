@@ -1,6 +1,10 @@
-# Julia Computing
+# :gem: Julia Computing
 
-Coming soon...
+The Julia programming language was created to be high-level and fast. It is well suited for numerical analysis and computational programming applications. This repository contains example code and documentation about various aspects of Julia programming.
+
+## Code examples
+
+Code files are available in the `examples` folder.
 
 ## Documentation
 
@@ -28,3 +32,15 @@ Bundler and the GitHub Pages gem can be updated with the following commands:
 $ gem update bundler
 $ bundle update github-pages
 ```
+
+## Support
+
+Here.
+
+## Contributing
+
+Here.
+
+## License
+
+Here.
