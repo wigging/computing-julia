@@ -3,7 +3,7 @@
 
 ## Arrays
 
-An array is a collection of items surrounded by square brackets. Arrays in Julia are 1-based therefore the first item in an array is at the 1-index.
+An array is a collection of items surrounded by square brackets `[ ]`. Arrays in Julia are 1-based therefore the first item in an array is at the 1-index.
 
 ```julia
 # Array of strings representing fruits
@@ -27,7 +27,8 @@ An item in an array can be replaced by assigning the index of that item to a new
 numbers = [4.2, 8, 10, 3, 4]
 
 # Replace the value of the first item
-julia> numbers[1] = 20
+numbers[1] = 20
+
 julia> numbers
 5-element Vector{Float64}:
  20.0
@@ -43,11 +44,12 @@ Use the `copy()` function to copy an array to a new variable.
 # Array of numbers
 numbers2 = [4.2, 8, 10, 3, 4]
 
-# Copy array to a new variable
-julia> numbers3 = copy(numbers2)
+# Copy the array to a new variable
+numbers3 = copy(numbers2)
 
-# Replace value of first item in original array
-julia> numbers2[1] = 100
+# Replace value of the first item in original array
+numbers2[1] = 100
+
 julia> numbers2
 5-element Vector{Float64}:
  100.0
