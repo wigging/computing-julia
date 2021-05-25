@@ -1,7 +1,11 @@
-#=
-Examples of conditional statements.
-=#
+---
+---
 
+## Conditional statements
+
+A conditional statement is written with the `if-elseif-else` syntax. The ternary operator `? :` offers a concise syntax for a conditional expression.
+
+```julia
 x = 10
 y = 17.2
 
@@ -17,3 +21,4 @@ end
 
 # Can also write the above as follows
 println((x > y) ? "the x > y" : "the x < y")
+```
