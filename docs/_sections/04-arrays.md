@@ -67,3 +67,15 @@ julia> numbers3
   3.0
   4.0
 ```
+
+Use an array comprehension to create an array from a range of numbers.
+
+```julia
+julia> z = [i * 2 for i in 1:5]
+5-element Vector{Int64}:
+  2
+  4
+  6
+  8
+ 10
+```

@@ -19,3 +19,7 @@ numbers3 = copy(numbers2)
 numbers2[1] = 100
 println("numbers2 = $numbers2")
 println("numbers3 = $numbers3")
+
+# An array comprehension
+z = [i * 2 for i in 1:5]
+println(z)

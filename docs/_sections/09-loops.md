@@ -1,7 +1,11 @@
-#=
-Examples of loops.
-=#
+---
+---
 
+## Loops
+
+Use a for-loop for repeated tasks and to iterate over arrays.
+
+```julia
 foods = ["melon", "apple", "berry", "orange"]
 
 # Loop through the items in an array
@@ -13,3 +17,4 @@ end
 for x in 1:10
     println("x is $x")
 end
+```
