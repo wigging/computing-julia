@@ -1,16 +1,16 @@
 # :gem: Julia Computing
 
-The Julia programming language was created to be high-level and fast. It is well suited for numerical analysis and computational programming applications. This repository contains example code and documentation about various aspects of Julia programming.
+The Julia programming language is a high-level, high-performance languauge that is suitable for scientific computing applications. This repository contains example code and a website about various aspects of Julia programming.
 
 ## Code examples
 
 Code files are available in the `examples` folder.
 
-## Documentation
+## Website
 
-Documentation is available at X.
+Website files are in the `docs` folder. View the website at X.
 
-The documentation website is hosted with [GitHub Pages](https://pages.github.com) and built with [Jekyll](https://jekyllrb.com). Files for the website are in the **docs** folder. To build the website locally, [Bundler](https://bundler.io) is used for the Ruby environment. See the steps below to build a local environment for the website.
+The website is hosted with [GitHub Pages](https://pages.github.com) and built with [Jekyll](https://jekyllrb.com). To build the website locally, [Bundler](https://bundler.io) is used for the Ruby environment. See the steps below to build a local environment for the website.
 
 ```bash
 # If not done so already, install Bundler
@@ -20,7 +20,7 @@ $ gem install bundler
 $ bundle install
 ```
 
-After installing the Ruby environment, run the Jekyll server from within the **docs** folder using the following command:
+After installing the Ruby environment, run the Jekyll server from within the `docs` folder using the following command:
 
 ```bash
 $ bundle exec jekyll serve
@@ -35,12 +35,12 @@ $ bundle update github-pages
 
 ## Support
 
-Here.
+Support this project by using the **:heart: Sponsor** button at the top of this page. Thank you :smile:.
 
 ## Contributing
 
-Here.
+Submit a Pull Request if you would like to contribute to this project. Questions and other comments can be submitted on the Issues page.
 
 ## License
 
-Here.
+Code in this repository is available under the MIT License - see the [LICENSE](LICENSE) file for more information.
