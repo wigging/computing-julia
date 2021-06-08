@@ -49,6 +49,10 @@ body {
         padding-top: 2rem;
     }
 
+    h2 {
+        margin-top: 2rem;
+    }
+
     .navbar {
         position: sticky;
         top: 2rem;
