@@ -1,6 +1,6 @@
 # :gem: Julia Computing
 
-The Julia programming language is a high-level, high-performance languauge that is suitable for scientific computing applications. This repository contains example code and a website about various aspects of Julia programming.
+The Julia programming language is a high-level, high-performance languauge that is suitable for scientific computing applications. This repository contains example code that demonstrates various aspects of Julia programming.
 
 ## Code examples
 
