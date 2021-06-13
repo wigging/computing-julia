@@ -9,7 +9,16 @@ y = 17.2
 if x > y
     println("the x > y")
 else
+    println("the x < y or x and y are equal")
+end
+
+# An if-elseif-else statement
+if x > y
+    println("the x > y")
+elseif x < y
     println("the x < y")
+else
+    println("x and y are equal")
 end
 
 # Using the ternary operator for an if-else statement
