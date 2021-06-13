@@ -4,6 +4,10 @@
     max-width: 700px;
 }
 
+.navbar {
+    background-color: #282828;
+}
+
 /* Large screens */
 
 @media (min-width: 500px) {
