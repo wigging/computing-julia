@@ -3,7 +3,7 @@
 
 ## Comments
 
-Single line and inline comments begin with `#` in Julia. Use `#= =#` for multiline comments.
+Single line and inline comments begin with `#` in Julia. Wrap multiple lines of text with `#= =#` for multiline comments.
 
 ```julia
 # This is a single line comment
