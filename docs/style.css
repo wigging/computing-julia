@@ -8,15 +8,9 @@
     background-color: #282828;
 }
 
-/* Large screens */
-
-@media (min-width: 500px) {
-
-    h2 {
-        margin-top: -4rem;
-        padding-top: 4rem;
-    }
-
+h2 {
+    margin-top: 3rem;
+    scroll-margin-top: 5rem;
 }
 
 /* Mobile screens */
@@ -24,8 +18,7 @@
 @media only screen and (max-width: 600px) {
 
     h2 {
-        margin-top: -10rem;
-        padding-top: 10rem;
+        scroll-margin-top: 10rem;
     }
 
 }
