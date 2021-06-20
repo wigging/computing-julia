@@ -79,3 +79,43 @@ julia> z = [i * 2 for i in 1:5]
   8
  10
 ```
+
+Julia's arrays are stored in column-major order. Therefore, iterating over the columns first in a 2D array will execute quicker than iterating over the rows first. This is demonstrated in the example below where `calcA()` finishes in about 0.7 seconds while `calcB()` completes after 2.5 seconds for 10,000 iterations on a MacBook Pro.
+
+```julia
+# iterate over columns first then rows (faster)
+function calcA(n)
+    x = rand(n, n)
+    z = zeros(n, n)
+
+    for j in 1:n
+        for i in 1:n
+            xij = x[i, j]
+            z[i, j] = xij^2
+        end
+    end
+
+    return z
+end
+
+# iterate over rows first then columns (slower)
+function calcB(n)
+    x = rand(n, n)
+    z = zeros(n, n)
+
+    for i in 1:n
+        for j in 1:n
+            xij = x[i, j]
+            z[i, j] = xij^2
+        end
+    end
+
+    return z
+end
+
+julia> @time calcA(10_000);
+  0.733511 seconds (4 allocations: 1.490 GiB, 6.50% gc time)
+
+julia> @time calcB(10_000);
+  2.527453 seconds (4 allocations: 1.490 GiB, 4.04% gc time)
+```
