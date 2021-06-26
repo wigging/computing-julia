@@ -5,7 +5,7 @@
 
 To demonstrate testing functions in Julia, two functions are defined below.
 
-```jula
+```julia
 # adder.jl
 
 function adder(x, y)
