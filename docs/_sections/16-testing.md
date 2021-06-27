@@ -3,7 +3,7 @@
 
 ## Testing
 
-To demonstrate testing functions in Julia, two functions are defined below.
+To demonstrate testing functions in Julia, two functions are defined below. A small program that uses the functions is also shown.
 
 ```julia
 # adder.jl
@@ -23,8 +23,6 @@ function divider(s, t)
 end
 ```
 
-And here is a small program that uses the adder and divider functions.
-
 ```julia
 # main.jl
 
@@ -41,6 +39,8 @@ println("d is $d")
 Testing the functions can be done with the Test package.
 
 ```julia
+# tests.jl
+
 using Test
 
 include("adder.jl")
