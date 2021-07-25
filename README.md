@@ -1,4 +1,4 @@
-# :gem: Julia Computing
+# :gem: Computing with Julia
 
 The Julia programming language is a high-level, high-performance languauge that is suitable for scientific computing applications. This repository contains example code that demonstrates various aspects of Julia programming.
 
@@ -8,7 +8,7 @@ Code files are available in the `examples` folder.
 
 ## Website
 
-Website files are in the `docs` folder. View the website at https://gavinw.me/julia-computing/.
+Website files are in the `docs` folder. View the website at https://gavinw.me/computing-julia/.
 
 The website is hosted with [GitHub Pages](https://pages.github.com) and built with [Jekyll](https://jekyllrb.com). To build the website locally, [Bundler](https://bundler.io) is used for the Ruby environment. See the steps below to build a local environment for the website.
 
