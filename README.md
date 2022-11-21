@@ -43,4 +43,4 @@ Submit a Pull Request if you would like to contribute to this project. Questions
 
 ## License
 
-Code in this repository is available under the MIT License - see the [LICENSE](LICENSE) file for more information.
+Code in this repository is available under the MIT License - see the [LICENSE](LICENSE.md) file for more information.
