@@ -1,4 +1,0 @@
-collections:
-  - sections
-
-exclude: [Gemfile]
