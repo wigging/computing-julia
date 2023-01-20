@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://gavinw.me/computing-julia/rss.xml" rel="alternate" type="application/rss+xml" title="RSS">
+    <link href="https://gavinw.me/computing-julia/styles.css" rel="stylesheet">
+    <title>Computing Julia</title>
+</head>
+<body>
+<div class="container">
+    
+<div class="row">
+<div class="col">
+    <h1>Functions</h1>
+    
+        <h6>May 27, 2021</h6>
+    
+    <hr>
+    <p>In Julia, a function is an object where input arguments provide a return value.</p>
+<pre data-lang="julia" style="background-color:#2b303b;color:#c0c5ce;" class="language-julia "><code class="language-julia" data-lang="julia"><span style="color:#65737e;"># A typical function in Julia
+</span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">sayhello</span><span>(x)
+</span><span>    println(&quot;</span><span style="color:#a3be8c;">Hello </span><span>$x&quot;)
+</span><span style="color:#b48ead;">end
+</span><span>
+</span><span>julia&gt; sayhello(&quot;</span><span style="color:#a3be8c;">Batman</span><span>&quot;)
+</span><span>Hello Batman
+</span><span>
+</span><span style="color:#65737e;"># A compact form of the above function
+</span><span>sayhello</span><span style="color:#d08770;">2</span><span>(y) = println(&quot;</span><span style="color:#a3be8c;">Hello there </span><span>$y&quot;)
+</span><span>
+</span><span>julia&gt; sayhello</span><span style="color:#d08770;">2</span><span>(&quot;</span><span style="color:#a3be8c;">Superman</span><span>&quot;)
+</span><span>Hello there Superman
+</span><span>
+</span><span style="color:#65737e;"># Another compact form of the above function
+</span><span>sayhello</span><span style="color:#d08770;">3 </span><span>= z -&gt; println(&quot;</span><span style="color:#a3be8c;">Hello again </span><span>$z&quot;)
+</span><span>
+</span><span>julia&gt; sayhello</span><span style="color:#d08770;">3</span><span>(&quot;</span><span style="color:#a3be8c;">Krusty</span><span>&quot;)
+</span><span>Hello again Krusty
+</span></code></pre>
+<p>The built-in <code>sort()</code> function orders items in an array.</p>
+<pre data-lang="julia" style="background-color:#2b303b;color:#c0c5ce;" class="language-julia "><code class="language-julia" data-lang="julia"><span style="color:#65737e;"># Create a new sorted array
+</span><span>v</span><span style="color:#d08770;">1 </span><span>= [</span><span style="color:#d08770;">4</span><span>, </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">9</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">5</span><span>]
+</span><span>println(&quot;</span><span style="color:#a3be8c;">v1 = </span><span>$v1&quot;)
+</span><span>println(&quot;</span><span style="color:#a3be8c;">sort(v1) = </span><span>$(sort(v</span><span style="color:#d08770;">1</span><span>))&quot;)
+</span><span>println(&quot;</span><span style="color:#a3be8c;">v1 = </span><span>$v1&quot;)
+</span><span>
+</span><span style="color:#65737e;"># Sort an array (sort and modify the array)
+</span><span>v</span><span style="color:#d08770;">2 </span><span>= [</span><span style="color:#d08770;">4</span><span>, </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">9</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">5</span><span>]
+</span><span>println(&quot;</span><span style="color:#a3be8c;">v2 = </span><span>$v2&quot;)
+</span><span>println(&quot;</span><span style="color:#a3be8c;">sort!(v2) = </span><span>$(sort!(v</span><span style="color:#d08770;">2</span><span>))&quot;)
+</span><span>println(&quot;</span><span style="color:#a3be8c;">v2 = </span><span>$v2&quot;)
+</span></code></pre>
+
+</div>
+</div>
+<div class="row my-5">
+<div class="col">
+    <p class="text-center small my-5">
+        <a href="https://gavinw.me/computing-julia/">Computing with Julia</a> © 2023 <br>
+        Built by <a href="https://gavinw.me">Gavin Wiggins</a>
+    </p>
+</div>
+</div>
+
+</div>
+</body>
+</html>

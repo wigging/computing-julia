@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Computing with Julia</title>
+        <link>https://gavinw.me/computing-julia</link>
+        <description>Examples of the Julia programming language</description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://gavinw.me/computing-julia/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sat, 26 Jun 2021 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>Testing</title>
+            <pubDate>Sat, 26 Jun 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/testing/</link>
+            <guid>https://gavinw.me/computing-julia/julia/testing/</guid>
+            <description>&lt;p&gt;To demonstrate testing functions in Julia, two functions are defined below. A small program that uses the functions is also shown.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# adder.jl
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;adder&lt;&#x2F;span&gt;&lt;span&gt;(x, y)
+&lt;&#x2F;span&gt;&lt;span&gt;    a = x + y
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt; a
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# divider.jl
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;divider&lt;&#x2F;span&gt;&lt;span&gt;(s, t)
+&lt;&#x2F;span&gt;&lt;span&gt;    d = s &#x2F; t
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt; d
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# main.jl
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;include(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;adder.jl&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;include(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;divider.jl&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;a = adder(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;a is &lt;&#x2F;span&gt;&lt;span&gt;$a&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;d = divider(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3.5&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;d is &lt;&#x2F;span&gt;&lt;span&gt;$d&amp;quot;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Testing the functions can be done with the Test package.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# tests.jl
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;using&lt;&#x2F;span&gt;&lt;span&gt; Test
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;include(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;adder.jl&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;include(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;divider.jl&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;@&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;testset &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;All the tests&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;begin
+&lt;&#x2F;span&gt;&lt;span&gt;    @&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span&gt; adder(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;) == &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;7
+&lt;&#x2F;span&gt;&lt;span&gt;    @&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span&gt; divider(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;) ≈ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3.333333333
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Running the tests from the command line produces the following results:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;$ julia tests.jl
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Test Summary: | Pass  Total
+&lt;&#x2F;span&gt;&lt;span&gt;All the tests |    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2      2
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Docstrings</title>
+            <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/docstrings/</link>
+            <guid>https://gavinw.me/computing-julia/julia/docstrings/</guid>
+            <description>&lt;p&gt;Any string appearing directly above an object is interpreted as a docstring for that object. This documentation is treated as Markdown therefore code blocks and other Markdown supported features are supported. An example docstring for a function is shown below.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# example.jl
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot;&amp;quot;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;    sayhello(x, y)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;Print a hello greeting given a first `x` and last `y` name.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Inputs
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;- `x`: the first name.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;- `y`: the last name.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;### Examples
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;```
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;julia&amp;gt; sayhello(&amp;quot;Bart&amp;quot;, &amp;quot;Simpson&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;Saying hello to Bart Simpson.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;```
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot;&amp;quot;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;sayhello&lt;&#x2F;span&gt;&lt;span&gt;(x, y)
+&lt;&#x2F;span&gt;&lt;span&gt;    s = &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Saying hello to &lt;&#x2F;span&gt;&lt;span&gt;$x $y&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;    println(s)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;a = &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Bart&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;b = &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Simpson&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;sayhello(a, b)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The docstring for the above function can be rendered in the Julia REPL by typing &lt;code&gt;?&lt;&#x2F;code&gt; then the name of the function.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;julia&amp;gt; include(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;example.jl&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; ?
+&lt;&#x2F;span&gt;&lt;span&gt;help?&amp;gt; sayhello
+&lt;&#x2F;span&gt;&lt;span&gt;search: sayhello
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  sayhello(x, y)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  Print a hello greeting given a first x and last y name.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  Inputs
+&lt;&#x2F;span&gt;&lt;span&gt;  ≡≡≡≡≡≡≡≡
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    •  x: the first name.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    •  y: the last name.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  Examples
+&lt;&#x2F;span&gt;&lt;span&gt;  ––––––––––
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  julia&amp;gt; sayhello(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Bart&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Simpson&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;  Saying hello to Bart Simpson.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Debugging</title>
+            <pubDate>Tue, 22 Jun 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/debugging/</link>
+            <guid>https://gavinw.me/computing-julia/julia/debugging/</guid>
+            <description>&lt;p&gt;One way to debug Julia code is to use the &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;JuliaDebug&#x2F;Infiltrator.jl&quot;&gt;Infiltrator.jl package&lt;&#x2F;a&gt;.  As shown in the example file below, a breakpoint is set with the &lt;code&gt;@infiltrate&lt;&#x2F;code&gt; macro.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# debugging.jl
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;using&lt;&#x2F;span&gt;&lt;span&gt; Infiltrator
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;calcs&lt;&#x2F;span&gt;&lt;span&gt;(x, y)
+&lt;&#x2F;span&gt;&lt;span&gt;    a = x + y^&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;span&gt;    @&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;infiltrate
+&lt;&#x2F;span&gt;&lt;span&gt;    b = (a + &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;) &#x2F; x^&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt; b
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;z = calcs(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;9&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;z is &lt;&#x2F;span&gt;&lt;span&gt;$z&amp;quot;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;To debug the file, open a Julia REPL then run the file in the REPL to enter the debugger mode &lt;code&gt;infil&amp;gt;&lt;&#x2F;code&gt;. View a list of local variables in the debugger with &lt;code&gt;@locals&lt;&#x2F;code&gt; or use &lt;code&gt;?&lt;&#x2F;code&gt; to see the other available commands. Local variables can also be viewed and manipulated by just entering them into the debugger REPL.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;julia&amp;gt; include(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;debugging.jl&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; include(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;debugging.jl&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;Infiltrating calcs(x::Int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;64&lt;&#x2F;span&gt;&lt;span&gt;, y::Int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;64&lt;&#x2F;span&gt;&lt;span&gt;) at debugging.jl:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;infil&amp;gt; @&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;locals
+&lt;&#x2F;span&gt;&lt;span&gt;- a::Int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;64 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;83
+&lt;&#x2F;span&gt;&lt;span&gt;- y::Int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;64 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;9
+&lt;&#x2F;span&gt;&lt;span&gt;- x::Int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;64 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;infil&amp;gt; x
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Arrays</title>
+            <pubDate>Sun, 20 Jun 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/arrays/</link>
+            <guid>https://gavinw.me/computing-julia/julia/arrays/</guid>
+            <description>&lt;p&gt;An array is a collection of items surrounded by square brackets &lt;code&gt;[ ]&lt;&#x2F;code&gt;. Arrays in Julia are 1-based therefore the first item in an array is at the 1-index.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Array of strings representing fruits
+&lt;&#x2F;span&gt;&lt;span&gt;fruits = [&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;orange&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;melon&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;apple&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;lemon&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Get the first item
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; fruits[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot;orange&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Get items two through three
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; fruits[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;-element Vector{String}:
+&lt;&#x2F;span&gt;&lt;span&gt; &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;melon&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt; &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;apple&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;An item in an array can be replaced by assigning the index of that item to a new value.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Array of numbers
+&lt;&#x2F;span&gt;&lt;span&gt;numbers = [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4.2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Replace the value of the first item
+&lt;&#x2F;span&gt;&lt;span&gt;numbers[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;] = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;20
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; numbers
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;-element Vector{Float&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;64&lt;&#x2F;span&gt;&lt;span&gt;}:
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;20.0
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8.0
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10.0
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3.0
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4.0
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Use the &lt;code&gt;copy()&lt;&#x2F;code&gt; function to copy an array to a new variable.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Array of numbers
+&lt;&#x2F;span&gt;&lt;span&gt;numbers&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2 &lt;&#x2F;span&gt;&lt;span&gt;= [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4.2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Copy the array to a new variable
+&lt;&#x2F;span&gt;&lt;span&gt;numbers&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3 &lt;&#x2F;span&gt;&lt;span&gt;= copy(numbers&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Replace value of the first item in original array
+&lt;&#x2F;span&gt;&lt;span&gt;numbers&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;] = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;100
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; numbers&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;-element Vector{Float&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;64&lt;&#x2F;span&gt;&lt;span&gt;}:
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;100.0
+&lt;&#x2F;span&gt;&lt;span&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8.0
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10.0
+&lt;&#x2F;span&gt;&lt;span&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3.0
+&lt;&#x2F;span&gt;&lt;span&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4.0
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# New array contains values from original array
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; numbers&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;-element Vector{Float&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;64&lt;&#x2F;span&gt;&lt;span&gt;}:
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4.2
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8.0
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10.0
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3.0
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4.0
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Use an array comprehension to create an array from a range of numbers.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;julia&amp;gt; z = [i * &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;-element Vector{Int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;64&lt;&#x2F;span&gt;&lt;span&gt;}:
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;6
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Julia&#x27;s arrays are stored in column-major order. Therefore, iterating over the columns first in a 2D array will execute quicker than iterating over the rows first. This is demonstrated in the example below where &lt;code&gt;calcA()&lt;&#x2F;code&gt; finishes in about 0.7 seconds while &lt;code&gt;calcB()&lt;&#x2F;code&gt; completes after 2.5 seconds for 10,000 iterations on a MacBook Pro.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# iterate over columns first then rows (faster)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;calcA&lt;&#x2F;span&gt;&lt;span&gt;(n)
+&lt;&#x2F;span&gt;&lt;span&gt;    x = rand(n, n)
+&lt;&#x2F;span&gt;&lt;span&gt;    z = zeros(n, n)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;:n
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;:n
+&lt;&#x2F;span&gt;&lt;span&gt;            xij = x[i, j]
+&lt;&#x2F;span&gt;&lt;span&gt;            z[i, j] = xij^&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt; z
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# iterate over rows first then columns (slower)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;calcB&lt;&#x2F;span&gt;&lt;span&gt;(n)
+&lt;&#x2F;span&gt;&lt;span&gt;    x = rand(n, n)
+&lt;&#x2F;span&gt;&lt;span&gt;    z = zeros(n, n)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;:n
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;:n
+&lt;&#x2F;span&gt;&lt;span&gt;            xij = x[i, j]
+&lt;&#x2F;span&gt;&lt;span&gt;            z[i, j] = xij^&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt; z
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; @&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;time&lt;&#x2F;span&gt;&lt;span&gt; calcA(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10_000&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0.733511&lt;&#x2F;span&gt;&lt;span&gt; seconds (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt; allocations: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1.490&lt;&#x2F;span&gt;&lt;span&gt; GiB, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;6.50&lt;&#x2F;span&gt;&lt;span&gt;% gc time)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; @&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;time&lt;&#x2F;span&gt;&lt;span&gt; calcB(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10_000&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2.527453&lt;&#x2F;span&gt;&lt;span&gt; seconds (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt; allocations: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1.490&lt;&#x2F;span&gt;&lt;span&gt; GiB, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4.04&lt;&#x2F;span&gt;&lt;span&gt;% gc time)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Getting started</title>
+            <pubDate>Sun, 20 Jun 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/getting-started/</link>
+            <guid>https://gavinw.me/computing-julia/julia/getting-started/</guid>
+            <description>&lt;p&gt;To get started, visit the main Julia website at &lt;a href=&quot;https:&#x2F;&#x2F;julialang.org&quot;&gt;https:&#x2F;&#x2F;julialang.org&lt;&#x2F;a&gt; and follow their download and installation instructions. Julia is available for macOS, various flavors of Linux, FreeBSD, and Windows. After installation, read the sections below to learn more about the various features of the language.&lt;&#x2F;p&gt;
+&lt;p&gt;Some of the code examples on this site use the &lt;code&gt;julia&amp;gt; &lt;&#x2F;code&gt; prompt to represent a line of executed code. This prompt is part of the Julia REPL which is accessed by entering the &lt;code&gt;julia&lt;&#x2F;code&gt; command in the terminal. As demonstrated in the code block shown below, &lt;code&gt;julia&amp;gt; x = 2.5&lt;&#x2F;code&gt; assigns &lt;code&gt;2.5&lt;&#x2F;code&gt; to the &lt;code&gt;x&lt;&#x2F;code&gt; variable. The execution of this line displays a value of &lt;code&gt;2.5&lt;&#x2F;code&gt; in the REPL. Another example is adding two numbers such as &lt;code&gt;5 + 4.8&lt;&#x2F;code&gt; to get a result of &lt;code&gt;9.8&lt;&#x2F;code&gt;. To exit the REPL enter &lt;code&gt;exit()&lt;&#x2F;code&gt; on a blank line or press Control-D on the keyboard.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;$ julia
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Assign the value 2.5 to x
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; x = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2.5
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2.5
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Add two numbers
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5 &lt;&#x2F;span&gt;&lt;span&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4.8
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;9.8
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Exit the Julia REPL with exit() or Control-D
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; exit()
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The Julia REPL is also used to install and manage Julia packages. To invoke the package manager environment, enter &lt;code&gt;]&lt;&#x2F;code&gt; from within a REPL session. Use &lt;code&gt;pkg&amp;gt; help&lt;&#x2F;code&gt; to see an overview of the available commands. To exit the package manager, enter a backspace on an empty line or press Control-C on the keyboard.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;$ julia
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Enter the package manager environment
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; ]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Add the Debugger.jl package
+&lt;&#x2F;span&gt;&lt;span&gt;(@&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;v1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;.6&lt;&#x2F;span&gt;&lt;span&gt;) pkg&amp;gt; add Debugger
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# See installed Julia packages
+&lt;&#x2F;span&gt;&lt;span&gt;(@&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;v1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;.6&lt;&#x2F;span&gt;&lt;span&gt;) pkg&amp;gt; status
+&lt;&#x2F;span&gt;&lt;span&gt;      Status `&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;~&#x2F;.julia&#x2F;environments&#x2F;v1.6&#x2F;Project.toml&lt;&#x2F;span&gt;&lt;span&gt;`
+&lt;&#x2F;span&gt;&lt;span&gt;  [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;31&lt;&#x2F;span&gt;&lt;span&gt;a&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;f&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;54&lt;&#x2F;span&gt;&lt;span&gt;b] Debugger v&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0.6.8
+&lt;&#x2F;span&gt;&lt;span&gt;  [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;682&lt;&#x2F;span&gt;&lt;span&gt;c&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;06&lt;&#x2F;span&gt;&lt;span&gt;a&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;] JSON v&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0.21.1
+&lt;&#x2F;span&gt;&lt;span&gt;  [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;b&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0e0&lt;&#x2F;span&gt;&lt;span&gt;bc&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;] LanguageServer v&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4.0.0
+&lt;&#x2F;span&gt;&lt;span&gt;  [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;91&lt;&#x2F;span&gt;&lt;span&gt;a&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;bcdd] Plots v&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1.16.5
+&lt;&#x2F;span&gt;&lt;span&gt;  [cf&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;896787&lt;&#x2F;span&gt;&lt;span&gt;] SymbolServer v&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;7.0.0
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# See list of available commands
+&lt;&#x2F;span&gt;&lt;span&gt;(@&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;v1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;.6&lt;&#x2F;span&gt;&lt;span&gt;) pkg&amp;gt; help
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Comments</title>
+            <pubDate>Sun, 13 Jun 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/comments/</link>
+            <guid>https://gavinw.me/computing-julia/julia/comments/</guid>
+            <description>&lt;p&gt;Single line and inline comments begin with &lt;code&gt;#&lt;&#x2F;code&gt; in Julia. Wrap multiple lines of text with &lt;code&gt;#= =#&lt;&#x2F;code&gt; for multiline comments.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# This is a single line comment
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;x = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;9.4    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# This is an inline comment
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#=
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;This is a multiline comment.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;Second line of the comments is here.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;=#
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Conditional statements</title>
+            <pubDate>Sun, 13 Jun 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/conditionals/</link>
+            <guid>https://gavinw.me/computing-julia/julia/conditionals/</guid>
+            <description>&lt;p&gt;A conditional statement is written with the &lt;code&gt;if-elseif-else&lt;&#x2F;code&gt; syntax. The ternary operator &lt;code&gt;? :&lt;&#x2F;code&gt; offers a concise syntax for a conditional expression.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;x = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10
+&lt;&#x2F;span&gt;&lt;span&gt;y = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;17.2
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# An if-else statement
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt; x &amp;gt; y
+&lt;&#x2F;span&gt;&lt;span&gt;    println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;the x &amp;gt; y&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else
+&lt;&#x2F;span&gt;&lt;span&gt;    println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;the x &amp;lt; y&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# An if-elseif-else statement
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt; x &amp;gt; y
+&lt;&#x2F;span&gt;&lt;span&gt;    println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;the x &amp;gt; y&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;elseif&lt;&#x2F;span&gt;&lt;span&gt; x &amp;lt; y
+&lt;&#x2F;span&gt;&lt;span&gt;    println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;the x &amp;lt; y&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else
+&lt;&#x2F;span&gt;&lt;span&gt;    println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;x and y are equal&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Ternary operator for an if-else statement
+&lt;&#x2F;span&gt;&lt;span&gt;(x &amp;gt; y) ? println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;the x &amp;gt; y&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;) : println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;the x &amp;lt; y&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Can also write the above ternary statement as follows
+&lt;&#x2F;span&gt;&lt;span&gt;println((x &amp;gt; y) ? &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;the x &amp;gt; y&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; : &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;the x &amp;lt; y&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>JSON parsing</title>
+            <pubDate>Tue, 08 Jun 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/json-parsing/</link>
+            <guid>https://gavinw.me/computing-julia/julia/json-parsing/</guid>
+            <description>&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;juliapackages.com&#x2F;p&#x2F;json&quot;&gt;JSON.jl package&lt;&#x2F;a&gt; provides JSON parsing and printing capabilities in Julia. See the package&#x27;s documentation for installation and usage information. The example below parses the &lt;code&gt;vehicles.json&lt;&#x2F;code&gt; file which contains&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;json&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-json &quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span&gt;[
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;make&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Ford&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;model&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Mustang&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;year&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1979
+&lt;&#x2F;span&gt;&lt;span&gt;    },
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;make&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Ford&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;model&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Explorer&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;year&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2001
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;and the &lt;code&gt;fruits.json&lt;&#x2F;code&gt; file which contains&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;json&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-json &quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;apples&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;oranges&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;berries&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;19&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;melons&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This example uses the JSON package to parse the above JSON files.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import&lt;&#x2F;span&gt;&lt;span&gt; JSON
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Parse vehicles.json which contains an array of objects
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; v = JSON.parsefile(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;vehicles.json&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; v[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;][&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;model&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot;Mustang&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; v[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;][&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;year&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1979
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Parse fruits.json which contains several name:value pairs
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; f = JSON.parsefile(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;fruits.json&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; f[&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;berries&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;19
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Modules</title>
+            <pubDate>Tue, 08 Jun 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/modules/</link>
+            <guid>https://gavinw.me/computing-julia/julia/modules/</guid>
+            <description>&lt;p&gt;Modules help organize code that can be easily used in another program. The &lt;code&gt;MyModule&lt;&#x2F;code&gt; shown below is an example of a user defined module which includes functions from the &lt;code&gt;funcA&lt;&#x2F;code&gt; and &lt;code&gt;funcB&lt;&#x2F;code&gt; files. For this example the module and its associated files are contained in a folder called MyModule.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;# Folder structure for the example module and associated files
+&lt;&#x2F;span&gt;&lt;span&gt;MyModule
+&lt;&#x2F;span&gt;&lt;span&gt;|- funcA.jl
+&lt;&#x2F;span&gt;&lt;span&gt;|- funcB.jl
+&lt;&#x2F;span&gt;&lt;span&gt;|- MyModule.jl
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# MyModule.jl
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;module&lt;&#x2F;span&gt;&lt;span&gt; MyModule
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;include(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;funcA.jl&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;include(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;funcB.jl&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;export&lt;&#x2F;span&gt;&lt;span&gt; myfuncA
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# funcA.jl
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;myfuncA&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;span&gt;    println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Say hello from function A&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# funcB.jl
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;myfuncB&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;span&gt;    println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Say hello from function B&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Two approaches to using a module are demonstrated below. The first approach imports the module with the &lt;code&gt;import&lt;&#x2F;code&gt; mechanism. This brings only the module name into the global scope. Functions associated with the module are accessed with dot notation.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# modules_import.jl
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Load the module file
+&lt;&#x2F;span&gt;&lt;span&gt;include(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;MyModule&#x2F;MyModule.jl&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Import the module
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import&lt;&#x2F;span&gt;&lt;span&gt; .MyModule
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Use the module functions
+&lt;&#x2F;span&gt;&lt;span&gt;MyModule.myfuncA()
+&lt;&#x2F;span&gt;&lt;span&gt;MyModule.myfuncB()
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;julia&amp;gt; modules_import.jl
+&lt;&#x2F;span&gt;&lt;span&gt;Say hello from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;A
+&lt;&#x2F;span&gt;&lt;span&gt;Say hello from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;B
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The second approach loads the module with the &lt;code&gt;using&lt;&#x2F;code&gt; mechanism. This brings the module name and the exported elements of the module into the global scope.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# modules_using.jl
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Load the module
+&lt;&#x2F;span&gt;&lt;span&gt;include(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;MyModule&#x2F;MyModule.jl&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Use the module and its exported function
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;using&lt;&#x2F;span&gt;&lt;span&gt; .MyModule
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Use the exported function
+&lt;&#x2F;span&gt;&lt;span&gt;myfuncA()
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Use a function from the module
+&lt;&#x2F;span&gt;&lt;span&gt;MyModule.myfuncB()
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;julia&amp;gt; modules_using.jl
+&lt;&#x2F;span&gt;&lt;span&gt;Say hello from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;A
+&lt;&#x2F;span&gt;&lt;span&gt;Say hello from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;B
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Print</title>
+            <pubDate>Wed, 02 Jun 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/print/</link>
+            <guid>https://gavinw.me/computing-julia/julia/print/</guid>
+            <description>&lt;p&gt;The &lt;code&gt;print()&lt;&#x2F;code&gt; function prints an undecorated text representation of an object. Similarly, the &lt;code&gt;println()&lt;&#x2F;code&gt; function prints text followed by a newline.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Print text
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; print(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;hello there&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;hello there
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Print text followed by a newline
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;hello there&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;hello there
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Functions</title>
+            <pubDate>Thu, 27 May 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/functions/</link>
+            <guid>https://gavinw.me/computing-julia/julia/functions/</guid>
+            <description>&lt;p&gt;In Julia, a function is an object where input arguments provide a return value.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# A typical function in Julia
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;sayhello&lt;&#x2F;span&gt;&lt;span&gt;(x)
+&lt;&#x2F;span&gt;&lt;span&gt;    println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Hello &lt;&#x2F;span&gt;&lt;span&gt;$x&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; sayhello(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Batman&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;Hello Batman
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# A compact form of the above function
+&lt;&#x2F;span&gt;&lt;span&gt;sayhello&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;(y) = println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Hello there &lt;&#x2F;span&gt;&lt;span&gt;$y&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; sayhello&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Superman&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;Hello there Superman
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Another compact form of the above function
+&lt;&#x2F;span&gt;&lt;span&gt;sayhello&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3 &lt;&#x2F;span&gt;&lt;span&gt;= z -&amp;gt; println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Hello again &lt;&#x2F;span&gt;&lt;span&gt;$z&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; sayhello&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Krusty&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;Hello again Krusty
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The built-in &lt;code&gt;sort()&lt;&#x2F;code&gt; function orders items in an array.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Create a new sorted array
+&lt;&#x2F;span&gt;&lt;span&gt;v&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;= [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;9&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;v1 = &lt;&#x2F;span&gt;&lt;span&gt;$v1&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;sort(v1) = &lt;&#x2F;span&gt;&lt;span&gt;$(sort(v&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;))&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;v1 = &lt;&#x2F;span&gt;&lt;span&gt;$v1&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Sort an array (sort and modify the array)
+&lt;&#x2F;span&gt;&lt;span&gt;v&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2 &lt;&#x2F;span&gt;&lt;span&gt;= [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;9&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;v2 = &lt;&#x2F;span&gt;&lt;span&gt;$v2&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;sort!(v2) = &lt;&#x2F;span&gt;&lt;span&gt;$(sort!(v&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;))&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;v2 = &lt;&#x2F;span&gt;&lt;span&gt;$v2&amp;quot;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Loops</title>
+            <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/loops/</link>
+            <guid>https://gavinw.me/computing-julia/julia/loops/</guid>
+            <description>&lt;p&gt;Use a for-loop for repeated tasks and to iterate over arrays.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;foods = [&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;melon&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;apple&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;berry&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;orange&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Loop through the items in an array
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; f &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;in&lt;&#x2F;span&gt;&lt;span&gt; foods
+&lt;&#x2F;span&gt;&lt;span&gt;    println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Food item is &lt;&#x2F;span&gt;&lt;span&gt;$f&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Loop through a sequence of numbers
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; x &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10
+&lt;&#x2F;span&gt;&lt;span&gt;    println(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;x is &lt;&#x2F;span&gt;&lt;span&gt;$x&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Operators</title>
+            <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/operators/</link>
+            <guid>https://gavinw.me/computing-julia/julia/operators/</guid>
+            <description>&lt;p&gt;The arithmetic operators shown below are available in Julia.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;julia&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;6 &lt;&#x2F;span&gt;&lt;span&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;9
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3 &lt;&#x2F;span&gt;&lt;span&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8
+&lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4 &lt;&#x2F;span&gt;&lt;span&gt;* &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;20
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;14 &lt;&#x2F;span&gt;&lt;span&gt;&#x2F; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2.8
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;14 &lt;&#x2F;span&gt;&lt;span&gt;% &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;9&lt;&#x2F;span&gt;&lt;span&gt;^&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;81
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Tuples</title>
+            <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/tuples/</link>
+            <guid>https://gavinw.me/computing-julia/julia/tuples/</guid>
+            <description>&lt;p&gt;A tuple is a fixed-length immutable container represented by parentheses &lt;code&gt;( )&lt;&#x2F;code&gt;. Values in a tuple are accessed with indexing. A single item tuple must contain a comma.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Tuple of strings
+&lt;&#x2F;span&gt;&lt;span&gt;people = (&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Marge&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Homer&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Bart&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Lisa&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; people[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot;Homer&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Tuple with one item
+&lt;&#x2F;span&gt;&lt;span&gt;item = (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;,)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; item[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;A named tuple assigns names for each item in the tuple. Indexing a named tuple is accomplished with dot syntax or the regular indexing syntax.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Named tuple
+&lt;&#x2F;span&gt;&lt;span&gt;vehicle = (make=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Ford&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, model=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Bronco&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, year=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2021&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; vehicle.make
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot;Ford&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; vehicle[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot;Ford&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; vehicle.year
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2021
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Dictionaries</title>
+            <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/dictionaries/</link>
+            <guid>https://gavinw.me/computing-julia/julia/dictionaries/</guid>
+            <description>&lt;p&gt;The &lt;code&gt;Dict()&lt;&#x2F;code&gt; constructor is used to create dictionaries in Julia. A dictionary is constructed using key value pairs separated with &lt;code&gt;=&amp;gt;&lt;&#x2F;code&gt; or as tuples.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Dictionary using key =&amp;gt; value
+&lt;&#x2F;span&gt;&lt;span&gt;contacts = Dict(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Bart&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; =&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;14&lt;&#x2F;span&gt;&lt;span&gt;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Marge&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; =&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;39&lt;&#x2F;span&gt;&lt;span&gt;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Homer&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; =&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;44&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Dictionary using (key, value)
+&lt;&#x2F;span&gt;&lt;span&gt;contacts&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2 &lt;&#x2F;span&gt;&lt;span&gt;= Dict([(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Lisa&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;16&lt;&#x2F;span&gt;&lt;span&gt;), (&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Krusty&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;28&lt;&#x2F;span&gt;&lt;span&gt;)])
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+        <item>
+            <title>Strings</title>
+            <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+            <link>https://gavinw.me/computing-julia/julia/strings/</link>
+            <guid>https://gavinw.me/computing-julia/julia/strings/</guid>
+            <description>&lt;p&gt;Strings can be represented by double quotes &lt;code&gt;&amp;quot; &amp;quot;&lt;&#x2F;code&gt; or by triple double quotes &lt;code&gt;&amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot;&lt;&#x2F;code&gt;. A character or group of characters are extracted from a string using an index or range. Combining strings can be accomplished with &lt;code&gt;$&lt;&#x2F;code&gt;, &lt;code&gt;string&lt;&#x2F;code&gt;, and &lt;code&gt;*&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# String as a double quote
+&lt;&#x2F;span&gt;&lt;span&gt;s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;This is a string&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# String as a triple double quote
+&lt;&#x2F;span&gt;&lt;span&gt;s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2 &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&amp;quot;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;This is &amp;quot;another&amp;quot; string&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&amp;quot;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot;This is &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;another&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt; string&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Indexing a string
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;begin&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;T&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: ASCII&#x2F;Unicode U+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0054 &lt;&#x2F;span&gt;&lt;span&gt;(category Lu: Letter, uppercase)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;end&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;g&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: ASCII&#x2F;Unicode U+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0067 &lt;&#x2F;span&gt;&lt;span&gt;(category Ll: Letter, lowercase)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;T&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: ASCII&#x2F;Unicode U+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0054 &lt;&#x2F;span&gt;&lt;span&gt;(category Lu: Letter, uppercase)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;6&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot;his i&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Combining strings with $
+&lt;&#x2F;span&gt;&lt;span&gt;s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3 &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Hello&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4 &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Julia&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; &amp;quot;$s3 $s4&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; programming!&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot;Hello Julia programming!&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Combining strings with string()
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5 &lt;&#x2F;span&gt;&lt;span&gt;= string(s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;, &amp;quot; &amp;quot;, s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; programming!!&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot;Hello Julia programming!!&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Combining strings with *
+&lt;&#x2F;span&gt;&lt;span&gt;julia&amp;gt; s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;6 &lt;&#x2F;span&gt;&lt;span&gt;= s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3 &lt;&#x2F;span&gt;&lt;span&gt;* &amp;quot; &amp;quot; * s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4 &lt;&#x2F;span&gt;&lt;span&gt;* &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; programming!!!&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot;Hello Julia programming!!!&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+        </item>
+    </channel>
+</rss>

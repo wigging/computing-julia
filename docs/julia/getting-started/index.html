@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://gavinw.me/computing-julia/rss.xml" rel="alternate" type="application/rss+xml" title="RSS">
+    <link href="https://gavinw.me/computing-julia/styles.css" rel="stylesheet">
+    <title>Computing Julia</title>
+</head>
+<body>
+<div class="container">
+    
+<div class="row">
+<div class="col">
+    <h1>Getting started</h1>
+    
+        <h6>June 20, 2021</h6>
+    
+    <hr>
+    <p>To get started, visit the main Julia website at <a href="https://julialang.org">https://julialang.org</a> and follow their download and installation instructions. Julia is available for macOS, various flavors of Linux, FreeBSD, and Windows. After installation, read the sections below to learn more about the various features of the language.</p>
+<p>Some of the code examples on this site use the <code>julia&gt; </code> prompt to represent a line of executed code. This prompt is part of the Julia REPL which is accessed by entering the <code>julia</code> command in the terminal. As demonstrated in the code block shown below, <code>julia&gt; x = 2.5</code> assigns <code>2.5</code> to the <code>x</code> variable. The execution of this line displays a value of <code>2.5</code> in the REPL. Another example is adding two numbers such as <code>5 + 4.8</code> to get a result of <code>9.8</code>. To exit the REPL enter <code>exit()</code> on a blank line or press Control-D on the keyboard.</p>
+<pre data-lang="julia" style="background-color:#2b303b;color:#c0c5ce;" class="language-julia "><code class="language-julia" data-lang="julia"><span>$ julia
+</span><span>
+</span><span style="color:#65737e;"># Assign the value 2.5 to x
+</span><span>julia&gt; x = </span><span style="color:#d08770;">2.5
+</span><span style="color:#d08770;">2.5
+</span><span>
+</span><span style="color:#65737e;"># Add two numbers
+</span><span>julia&gt; </span><span style="color:#d08770;">5 </span><span>+ </span><span style="color:#d08770;">4.8
+</span><span style="color:#d08770;">9.8
+</span><span>
+</span><span style="color:#65737e;"># Exit the Julia REPL with exit() or Control-D
+</span><span>julia&gt; exit()
+</span></code></pre>
+<p>The Julia REPL is also used to install and manage Julia packages. To invoke the package manager environment, enter <code>]</code> from within a REPL session. Use <code>pkg&gt; help</code> to see an overview of the available commands. To exit the package manager, enter a backspace on an empty line or press Control-C on the keyboard.</p>
+<pre data-lang="julia" style="background-color:#2b303b;color:#c0c5ce;" class="language-julia "><code class="language-julia" data-lang="julia"><span>$ julia
+</span><span>
+</span><span style="color:#65737e;"># Enter the package manager environment
+</span><span>julia&gt; ]
+</span><span>
+</span><span style="color:#65737e;"># Add the Debugger.jl package
+</span><span>(@</span><span style="color:#bf616a;">v1</span><span style="color:#d08770;">.6</span><span>) pkg&gt; add Debugger
+</span><span>
+</span><span style="color:#65737e;"># See installed Julia packages
+</span><span>(@</span><span style="color:#bf616a;">v1</span><span style="color:#d08770;">.6</span><span>) pkg&gt; status
+</span><span>      Status `</span><span style="color:#a3be8c;">~/.julia/environments/v1.6/Project.toml</span><span>`
+</span><span>  [</span><span style="color:#d08770;">31</span><span>a</span><span style="color:#d08770;">5</span><span>f</span><span style="color:#d08770;">54</span><span>b] Debugger v</span><span style="color:#d08770;">0.6.8
+</span><span>  [</span><span style="color:#d08770;">682</span><span>c</span><span style="color:#d08770;">06</span><span>a</span><span style="color:#d08770;">0</span><span>] JSON v</span><span style="color:#d08770;">0.21.1
+</span><span>  [</span><span style="color:#d08770;">2</span><span>b</span><span style="color:#d08770;">0e0</span><span>bc</span><span style="color:#d08770;">5</span><span>] LanguageServer v</span><span style="color:#d08770;">4.0.0
+</span><span>  [</span><span style="color:#d08770;">91</span><span>a</span><span style="color:#d08770;">5</span><span>bcdd] Plots v</span><span style="color:#d08770;">1.16.5
+</span><span>  [cf</span><span style="color:#d08770;">896787</span><span>] SymbolServer v</span><span style="color:#d08770;">7.0.0
+</span><span>
+</span><span style="color:#65737e;"># See list of available commands
+</span><span>(@</span><span style="color:#bf616a;">v1</span><span style="color:#d08770;">.6</span><span>) pkg&gt; help
+</span></code></pre>
+
+</div>
+</div>
+<div class="row my-5">
+<div class="col">
+    <p class="text-center small my-5">
+        <a href="https://gavinw.me/computing-julia/">Computing with Julia</a> © 2023 <br>
+        Built by <a href="https://gavinw.me">Gavin Wiggins</a>
+    </p>
+</div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://gavinw.me/computing-julia/rss.xml" rel="alternate" type="application/rss+xml" title="RSS">
+    <link href="https://gavinw.me/computing-julia/styles.css" rel="stylesheet">
+    <title>Computing Julia</title>
+</head>
+<body>
+<div class="container">
+    
+<div class="row">
+<div class="col">
+    <h1>Loops</h1>
+    
+        <h6>May 25, 2021</h6>
+    
+    <hr>
+    <p>Use a for-loop for repeated tasks and to iterate over arrays.</p>
+<pre data-lang="julia" style="background-color:#2b303b;color:#c0c5ce;" class="language-julia "><code class="language-julia" data-lang="julia"><span>foods = [&quot;</span><span style="color:#a3be8c;">melon</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">apple</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">berry</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">orange</span><span>&quot;]
+</span><span>
+</span><span style="color:#65737e;"># Loop through the items in an array
+</span><span style="color:#b48ead;">for</span><span> f </span><span style="color:#b48ead;">in</span><span> foods
+</span><span>    println(&quot;</span><span style="color:#a3be8c;">Food item is </span><span>$f&quot;)
+</span><span style="color:#b48ead;">end
+</span><span>
+</span><span style="color:#65737e;"># Loop through a sequence of numbers
+</span><span style="color:#b48ead;">for</span><span> x </span><span style="color:#b48ead;">in </span><span style="color:#d08770;">1</span><span>:</span><span style="color:#d08770;">10
+</span><span>    println(&quot;</span><span style="color:#a3be8c;">x is </span><span>$x&quot;)
+</span><span style="color:#b48ead;">end
+</span></code></pre>
+
+</div>
+</div>
+<div class="row my-5">
+<div class="col">
+    <p class="text-center small my-5">
+        <a href="https://gavinw.me/computing-julia/">Computing with Julia</a> © 2023 <br>
+        Built by <a href="https://gavinw.me">Gavin Wiggins</a>
+    </p>
+</div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://gavinw.me/computing-julia/rss.xml" rel="alternate" type="application/rss+xml" title="RSS">
+    <link href="https://gavinw.me/computing-julia/styles.css" rel="stylesheet">
+    <title>Computing Julia</title>
+</head>
+<body>
+<div class="container">
+    
+<div class="row">
+<div class="col">
+    <h1>Modules</h1>
+    
+        <h6>June  8, 2021</h6>
+    
+    <hr>
+    <p>Modules help organize code that can be easily used in another program. The <code>MyModule</code> shown below is an example of a user defined module which includes functions from the <code>funcA</code> and <code>funcB</code> files. For this example the module and its associated files are contained in a folder called MyModule.</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># Folder structure for the example module and associated files
+</span><span>MyModule
+</span><span>|- funcA.jl
+</span><span>|- funcB.jl
+</span><span>|- MyModule.jl
+</span></code></pre>
+<pre data-lang="julia" style="background-color:#2b303b;color:#c0c5ce;" class="language-julia "><code class="language-julia" data-lang="julia"><span style="color:#65737e;"># MyModule.jl
+</span><span style="color:#b48ead;">module</span><span> MyModule
+</span><span>
+</span><span>include(&quot;</span><span style="color:#a3be8c;">funcA.jl</span><span>&quot;)
+</span><span>include(&quot;</span><span style="color:#a3be8c;">funcB.jl</span><span>&quot;)
+</span><span>
+</span><span style="color:#b48ead;">export</span><span> myfuncA
+</span><span>
+</span><span style="color:#b48ead;">end
+</span></code></pre>
+<pre data-lang="julia" style="background-color:#2b303b;color:#c0c5ce;" class="language-julia "><code class="language-julia" data-lang="julia"><span style="color:#65737e;"># funcA.jl
+</span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">myfuncA</span><span>()
+</span><span>    println(&quot;</span><span style="color:#a3be8c;">Say hello from function A</span><span>&quot;)
+</span><span style="color:#b48ead;">end
+</span><span>
+</span><span style="color:#65737e;"># funcB.jl
+</span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">myfuncB</span><span>()
+</span><span>    println(&quot;</span><span style="color:#a3be8c;">Say hello from function B</span><span>&quot;)
+</span><span style="color:#b48ead;">end
+</span></code></pre>
+<p>Two approaches to using a module are demonstrated below. The first approach imports the module with the <code>import</code> mechanism. This brings only the module name into the global scope. Functions associated with the module are accessed with dot notation.</p>
+<pre data-lang="julia" style="background-color:#2b303b;color:#c0c5ce;" class="language-julia "><code class="language-julia" data-lang="julia"><span style="color:#65737e;"># modules_import.jl
+</span><span>
+</span><span style="color:#65737e;"># Load the module file
+</span><span>include(&quot;</span><span style="color:#a3be8c;">MyModule/MyModule.jl</span><span>&quot;)
+</span><span>
+</span><span style="color:#65737e;"># Import the module
+</span><span style="color:#b48ead;">import</span><span> .MyModule
+</span><span>
+</span><span style="color:#65737e;"># Use the module functions
+</span><span>MyModule.myfuncA()
+</span><span>MyModule.myfuncB()
+</span></code></pre>
+<pre data-lang="julia" style="background-color:#2b303b;color:#c0c5ce;" class="language-julia "><code class="language-julia" data-lang="julia"><span>julia&gt; modules_import.jl
+</span><span>Say hello from </span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">A
+</span><span>Say hello from </span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">B
+</span></code></pre>
+<p>The second approach loads the module with the <code>using</code> mechanism. This brings the module name and the exported elements of the module into the global scope.</p>
+<pre data-lang="julia" style="background-color:#2b303b;color:#c0c5ce;" class="language-julia "><code class="language-julia" data-lang="julia"><span style="color:#65737e;"># modules_using.jl
+</span><span>
+</span><span style="color:#65737e;"># Load the module
+</span><span>include(&quot;</span><span style="color:#a3be8c;">MyModule/MyModule.jl</span><span>&quot;)
+</span><span>
+</span><span style="color:#65737e;"># Use the module and its exported function
+</span><span style="color:#b48ead;">using</span><span> .MyModule
+</span><span>
+</span><span style="color:#65737e;"># Use the exported function
+</span><span>myfuncA()
+</span><span>
+</span><span style="color:#65737e;"># Use a function from the module
+</span><span>MyModule.myfuncB()
+</span></code></pre>
+<pre data-lang="julia" style="background-color:#2b303b;color:#c0c5ce;" class="language-julia "><code class="language-julia" data-lang="julia"><span>julia&gt; modules_using.jl
+</span><span>Say hello from </span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">A
+</span><span>Say hello from </span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">B
+</span></code></pre>
+
+</div>
+</div>
+<div class="row my-5">
+<div class="col">
+    <p class="text-center small my-5">
+        <a href="https://gavinw.me/computing-julia/">Computing with Julia</a> © 2023 <br>
+        Built by <a href="https://gavinw.me">Gavin Wiggins</a>
+    </p>
+</div>
+</div>
+
+</div>
+</body>
+</html>
