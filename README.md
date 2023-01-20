@@ -1,10 +1,14 @@
-# :gem: Computing with Julia
+# 🧮 Computing with Julia
 
-The Julia programming language is a high-level, high-performance languauge that is suitable for scientific computing applications. This repository contains examples that demonstrate various aspects of Julia programming. The examples are discussed on my personal website at https://gavinw.me.
+The Julia programming language is a high-level, high-performance languauge that is suitable for scientific computing applications. This repository and accompanying website contain examples that demonstrate various aspects of Julia programming. The website is available at https://gavinw.me/computing-julia.
 
 ## Examples
 
-Code files are available in the `julia-scripts` and `julia-projects` folders.
+Example code is located in the `julia-scripts` and `julia-projects` folders.
+
+## Website
+
+The website is generated with [Zola](https://www.getzola.org) using the `content`, `static`, `templates` folders, and the `config.toml` file. It is hosted with GitHub Pages from the `docs` folder.
 
 ## Support
 
