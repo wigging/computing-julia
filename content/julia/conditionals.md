@@ -1,7 +1,7 @@
-+++
-title = "Conditional statements"
-date = 2021-06-13
-+++
+---
+title: Conditional statements
+date: June 13, 2021
+---
 
 A conditional statement is written with the `if-elseif-else` syntax. The ternary operator `? :` offers a concise syntax for a conditional expression.
 

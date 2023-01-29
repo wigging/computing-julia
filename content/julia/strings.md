@@ -1,7 +1,7 @@
-+++
-title = "Strings"
-date = 2021-05-22
-+++
+---
+title: Strings
+date: May 22, 2021
+---
 
 Strings can be represented by double quotes `" "` or by triple double quotes `""" """`. A character or group of characters are extracted from a string using an index or range. Combining strings can be accomplished with `$`, `string`, and `*`.
 

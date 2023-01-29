@@ -1,7 +1,7 @@
-+++
-title = "Testing"
-date = 2021-06-26
-+++
+---
+title: Testing
+date: June 26, 2021
+---
 
 To demonstrate testing functions in Julia, two functions are defined below. A small program that uses the functions is also shown.
 

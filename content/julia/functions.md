@@ -1,7 +1,7 @@
-+++
-title = "Functions"
-date = 2021-05-27
-+++
+---
+title: Functions
+date: May 27, 2021
+---
 
 In Julia, a function is an object where input arguments provide a return value.
 

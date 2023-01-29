@@ -1,7 +1,7 @@
-+++
-title = "JSON parsing"
-date = 2021-06-08
-+++
+---
+title: JSON parsing
+date: June 8, 2021
+---
 
 The [JSON.jl package](https://juliapackages.com/p/json) provides JSON parsing and printing capabilities in Julia. See the package's documentation for installation and usage information. The example below parses the `vehicles.json` file which contains
 

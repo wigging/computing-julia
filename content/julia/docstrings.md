@@ -1,7 +1,7 @@
-+++
-title = "Docstrings"
-date = 2021-06-24
-+++
+---
+title: Docstrings
+date: June 24, 2021
+---
 
 Any string appearing directly above an object is interpreted as a docstring for that object. This documentation is treated as Markdown therefore code blocks and other Markdown supported features are supported. An example docstring for a function is shown below.
 

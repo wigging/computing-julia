@@ -1,7 +1,7 @@
-+++
-title = "Modules"
-date = 2021-06-08
-+++
+---
+title: Modules
+date: June 8, 2021
+---
 
 Modules help organize code that can be easily used in another program. The `MyModule` shown below is an example of a user defined module which includes functions from the `funcA` and `funcB` files. For this example the module and its associated files are contained in a folder called MyModule.
 

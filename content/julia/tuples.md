@@ -1,7 +1,7 @@
-+++
-title = "Tuples"
-date = 2021-05-23
-+++
+---
+title: Tuples
+date: May 23, 2021
+---
 
 A tuple is a fixed-length immutable container represented by parentheses `( )`. Values in a tuple are accessed with indexing. A single item tuple must contain a comma.
 

@@ -1,7 +1,7 @@
-+++
-title = "Operators"
-date = 2021-05-25
-+++
+---
+title: Operators
+date: May 25, 2021
+---
 
 The arithmetic operators shown below are available in Julia.
 

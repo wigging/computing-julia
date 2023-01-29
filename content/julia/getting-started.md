@@ -1,7 +1,7 @@
-+++
-title = "Getting started"
-date = 2021-06-20
-+++
+---
+title: Getting started
+date: June 20, 2021
+---
 
 To get started, visit the main Julia website at <https://julialang.org> and follow their download and installation instructions. Julia is available for macOS, various flavors of Linux, FreeBSD, and Windows. After installation, read the sections below to learn more about the various features of the language.
 

@@ -1,7 +1,7 @@
-+++
-title = "Dictionaries"
-date = 2021-05-22
-+++
+---
+title: Dictionaries
+date: May 22, 2021
+---
 
 The `Dict()` constructor is used to create dictionaries in Julia. A dictionary is constructed using key value pairs separated with `=>` or as tuples.
 

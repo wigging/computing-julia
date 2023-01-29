@@ -1,7 +1,7 @@
-+++
-title = "Loops"
-date = 2021-05-25
-+++
+---
+title: Loops
+date: May 25, 2021
+---
 
 Use a for-loop for repeated tasks and to iterate over arrays.
 

@@ -1,7 +1,7 @@
-+++
-title = "Debugging"
-date = 2021-06-22
-+++
+---
+title: Debugging
+date: June 22, 2021
+---
 
 One way to debug Julia code is to use the [Infiltrator.jl package](https://github.com/JuliaDebug/Infiltrator.jl).  As shown in the example file below, a breakpoint is set with the `@infiltrate` macro.
 

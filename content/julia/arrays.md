@@ -1,7 +1,7 @@
-+++
-title = "Arrays"
-date = 2021-06-20
-+++
+---
+title: Arrays
+date: June 20, 2021
+---
 
 An array is a collection of items surrounded by square brackets `[ ]`. Arrays in Julia are 1-based therefore the first item in an array is at the 1-index.
 
