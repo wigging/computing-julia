@@ -10,7 +10,7 @@
             "url": "{{ feed.url }}",
             "title": "{{ feed.title }}",
             "date_published": "{{ feed.date }}",
-            "content_html": "{{ feed.html | forceescape }}<p><a href=\"{{ feed.url }}\">Continue reading...</a></p>"
+            "content_html": {{ feed.html }}
         }{% if not loop.last %},{% endif +%}
     {% endfor %}
     ]
