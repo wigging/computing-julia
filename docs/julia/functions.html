@@ -17,7 +17,7 @@
     <link href="https://gavinw.me/computing-julia/feed.json" rel="alternate" type="application/feed+json" title="Computing Julia">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ repo_url }}/styles.css">
+    <link rel="stylesheet" href="/computing-julia/styles.css">
 
     <title>Computing Julia</title>
 </head>
@@ -26,11 +26,44 @@
     <div class="row">
         <div class="col-md">
 
-        <h1>{{ meta['title'][0] }}</h1>
-        <h6>{{ meta['date'][0] }}</h6>
+        <h1>Functions</h1>
+        <h6>May 27, 2021</h6>
         <hr>
 
-        {{ content }}
+        <p>In Julia, a function is an object where input arguments provide a return value.</p>
+<pre><code class="language-julia"># A typical function in Julia
+function sayhello(x)
+    println(&quot;Hello $x&quot;)
+end
+
+julia&gt; sayhello(&quot;Batman&quot;)
+Hello Batman
+
+# A compact form of the above function
+sayhello2(y) = println(&quot;Hello there $y&quot;)
+
+julia&gt; sayhello2(&quot;Superman&quot;)
+Hello there Superman
+
+# Another compact form of the above function
+sayhello3 = z -&gt; println(&quot;Hello again $z&quot;)
+
+julia&gt; sayhello3(&quot;Krusty&quot;)
+Hello again Krusty
+</code></pre>
+<p>The built-in <code>sort()</code> function orders items in an array.</p>
+<pre><code class="language-julia"># Create a new sorted array
+v1 = [4, 1, 9, 2, 5]
+println(&quot;v1 = $v1&quot;)
+println(&quot;sort(v1) = $(sort(v1))&quot;)
+println(&quot;v1 = $v1&quot;)
+
+# Sort an array (sort and modify the array)
+v2 = [4, 1, 9, 2, 5]
+println(&quot;v2 = $v2&quot;)
+println(&quot;sort!(v2) = $(sort!(v2))&quot;)
+println(&quot;v2 = $v2&quot;)
+</code></pre>
 
         </div>
     </div>

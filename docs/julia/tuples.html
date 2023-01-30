@@ -17,7 +17,7 @@
     <link href="https://gavinw.me/computing-julia/feed.json" rel="alternate" type="application/feed+json" title="Computing Julia">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ repo_url }}/styles.css">
+    <link rel="stylesheet" href="/computing-julia/styles.css">
 
     <title>Computing Julia</title>
 </head>
@@ -26,11 +26,36 @@
     <div class="row">
         <div class="col-md">
 
-        <h1>{{ meta['title'][0] }}</h1>
-        <h6>{{ meta['date'][0] }}</h6>
+        <h1>Tuples</h1>
+        <h6>May 23, 2021</h6>
         <hr>
 
-        {{ content }}
+        <p>A tuple is a fixed-length immutable container represented by parentheses <code>( )</code>. Values in a tuple are accessed with indexing. A single item tuple must contain a comma.</p>
+<pre><code class="language-julia"># Tuple of strings
+people = (&quot;Marge&quot;, &quot;Homer&quot;, &quot;Bart&quot;, &quot;Lisa&quot;)
+
+julia&gt; people[2]
+&quot;Homer&quot;
+
+# Tuple with one item
+item = (2,)
+
+julia&gt; item[1]
+2
+</code></pre>
+<p>A named tuple assigns names for each item in the tuple. Indexing a named tuple is accomplished with dot syntax or the regular indexing syntax.</p>
+<pre><code class="language-julia"># Named tuple
+vehicle = (make=&quot;Ford&quot;, model=&quot;Bronco&quot;, year=2021)
+
+julia&gt; vehicle.make
+&quot;Ford&quot;
+
+julia&gt; vehicle[1]
+&quot;Ford&quot;
+
+julia&gt; vehicle.year
+2021
+</code></pre>
 
         </div>
     </div>

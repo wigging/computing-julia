@@ -17,7 +17,7 @@
     <link href="https://gavinw.me/computing-julia/feed.json" rel="alternate" type="application/feed+json" title="Computing Julia">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ repo_url }}/styles.css">
+    <link rel="stylesheet" href="/computing-julia/styles.css">
 
     <title>Computing Julia</title>
 </head>
@@ -26,11 +26,23 @@
     <div class="row">
         <div class="col-md">
 
-        <h1>{{ meta['title'][0] }}</h1>
-        <h6>{{ meta['date'][0] }}</h6>
+        <h1>Loops</h1>
+        <h6>May 25, 2021</h6>
         <hr>
 
-        {{ content }}
+        <p>Use a for-loop for repeated tasks and to iterate over arrays.</p>
+<pre><code class="language-julia">foods = [&quot;melon&quot;, &quot;apple&quot;, &quot;berry&quot;, &quot;orange&quot;]
+
+# Loop through the items in an array
+for f in foods
+    println(&quot;Food item is $f&quot;)
+end
+
+# Loop through a sequence of numbers
+for x in 1:10
+    println(&quot;x is $x&quot;)
+end
+</code></pre>
 
         </div>
     </div>

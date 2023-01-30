@@ -17,7 +17,7 @@
     <link href="https://gavinw.me/computing-julia/feed.json" rel="alternate" type="application/feed+json" title="Computing Julia">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ repo_url }}/styles.css">
+    <link rel="stylesheet" href="/computing-julia/styles.css">
 
     <title>Computing Julia</title>
 </head>
@@ -26,11 +26,36 @@
     <div class="row">
         <div class="col-md">
 
-        <h1>{{ meta['title'][0] }}</h1>
-        <h6>{{ meta['date'][0] }}</h6>
+        <h1>Conditional statements</h1>
+        <h6>June 13, 2021</h6>
         <hr>
 
-        {{ content }}
+        <p>A conditional statement is written with the <code>if-elseif-else</code> syntax. The ternary operator <code>? :</code> offers a concise syntax for a conditional expression.</p>
+<pre><code class="language-julia">x = 10
+y = 17.2
+
+# An if-else statement
+if x &gt; y
+    println(&quot;the x &gt; y&quot;)
+else
+    println(&quot;the x &lt; y&quot;)
+end
+
+# An if-elseif-else statement
+if x &gt; y
+    println(&quot;the x &gt; y&quot;)
+elseif x &lt; y
+    println(&quot;the x &lt; y&quot;)
+else
+    println(&quot;x and y are equal&quot;)
+end
+
+# Ternary operator for an if-else statement
+(x &gt; y) ? println(&quot;the x &gt; y&quot;) : println(&quot;the x &lt; y&quot;)
+
+# Can also write the above ternary statement as follows
+println((x &gt; y) ? &quot;the x &gt; y&quot; : &quot;the x &lt; y&quot;)
+</code></pre>
 
         </div>
     </div>

@@ -17,7 +17,7 @@
     <link href="https://gavinw.me/computing-julia/feed.json" rel="alternate" type="application/feed+json" title="Computing Julia">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ repo_url }}/styles.css">
+    <link rel="stylesheet" href="/computing-julia/styles.css">
 
     <title>Computing Julia</title>
 </head>
@@ -26,11 +26,55 @@
     <div class="row">
         <div class="col-md">
 
-        <h1>{{ meta['title'][0] }}</h1>
-        <h6>{{ meta['date'][0] }}</h6>
+        <h1>Testing</h1>
+        <h6>June 26, 2021</h6>
         <hr>
 
-        {{ content }}
+        <p>To demonstrate testing functions in Julia, two functions are defined below. A small program that uses the functions is also shown.</p>
+<pre><code class="language-julia"># adder.jl
+
+function adder(x, y)
+    a = x + y
+    return a
+end
+</code></pre>
+<pre><code class="language-julia"># divider.jl
+
+function divider(s, t)
+    d = s / t
+    return d
+end
+</code></pre>
+<pre><code class="language-julia"># main.jl
+
+include(&quot;adder.jl&quot;)
+include(&quot;divider.jl&quot;)
+
+a = adder(2, 5)
+println(&quot;a is $a&quot;)
+
+d = divider(10, 3.5)
+println(&quot;d is $d&quot;)
+</code></pre>
+<p>Testing the functions can be done with the Test package.</p>
+<pre><code class="language-julia"># tests.jl
+
+using Test
+
+include(&quot;adder.jl&quot;)
+include(&quot;divider.jl&quot;)
+
+@testset &quot;All the tests&quot; begin
+    @test adder(2, 5) == 7
+    @test divider(10, 3) ≈ 3.333333333
+end
+</code></pre>
+<p>Running the tests from the command line produces the following results:</p>
+<pre><code class="language-julia">$ julia tests.jl
+
+Test Summary: | Pass  Total
+All the tests |    2      2
+</code></pre>
 
         </div>
     </div>

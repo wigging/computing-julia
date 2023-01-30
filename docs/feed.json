@@ -1,0 +1,120 @@
+{
+    "version": "https://jsonfeed.org/version/1.1",
+    "title": "Computing with Julia",
+    "home_page_url": "https://gavinw.me/computing-julia/",
+    "feed_url": "https://gavinw.me/computing-julia/feed.json",
+    "items": [
+        {
+            "id": "https://gavinw.me/computing-julia/julia/testing.html",
+            "url": "https://gavinw.me/computing-julia/julia/testing.html",
+            "title": "Testing",
+            "date_published": "2021-06-26T00:00:00Z",
+            "content_html": "<p>To demonstrate testing functions in Julia, two functions are defined below. A small program that uses the functions is also shown.</p><p><a href=\"https://gavinw.me/computing-julia/julia/testing.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/docstrings.html",
+            "url": "https://gavinw.me/computing-julia/julia/docstrings.html",
+            "title": "Docstrings",
+            "date_published": "2021-06-24T00:00:00Z",
+            "content_html": "<p>Any string appearing directly above an object is interpreted as a docstring for that object. This documentation is treated as Markdown therefore code blocks and other Markdown supported features are supported. An example docstring for a function is shown below.</p><p><a href=\"https://gavinw.me/computing-julia/julia/docstrings.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/debugging.html",
+            "url": "https://gavinw.me/computing-julia/julia/debugging.html",
+            "title": "Debugging",
+            "date_published": "2021-06-22T00:00:00Z",
+            "content_html": "<p>One way to debug Julia code is to use the <a href="https://github.com/JuliaDebug/Infiltrator.jl">Infiltrator.jl package</a>.  As shown in the example file below, a breakpoint is set with the <code>@infiltrate</code> macro.</p><p><a href=\"https://gavinw.me/computing-julia/julia/debugging.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/getting-started.html",
+            "url": "https://gavinw.me/computing-julia/julia/getting-started.html",
+            "title": "Getting started",
+            "date_published": "2021-06-20T00:00:00Z",
+            "content_html": "<p>To get started, visit the main Julia website at <a href="https://julialang.org">https://julialang.org</a> and follow their download and installation instructions. Julia is available for macOS, various flavors of Linux, FreeBSD, and Windows. After installation, read the sections below to learn more about the various features of the language.</p><p><a href=\"https://gavinw.me/computing-julia/julia/getting-started.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/arrays.html",
+            "url": "https://gavinw.me/computing-julia/julia/arrays.html",
+            "title": "Arrays",
+            "date_published": "2021-06-20T00:00:00Z",
+            "content_html": "<p>An array is a collection of items surrounded by square brackets <code>[ ]</code>. Arrays in Julia are 1-based therefore the first item in an array is at the 1-index.</p><p><a href=\"https://gavinw.me/computing-julia/julia/arrays.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/conditionals.html",
+            "url": "https://gavinw.me/computing-julia/julia/conditionals.html",
+            "title": "Conditional statements",
+            "date_published": "2021-06-13T00:00:00Z",
+            "content_html": "<p>A conditional statement is written with the <code>if-elseif-else</code> syntax. The ternary operator <code>? :</code> offers a concise syntax for a conditional expression.</p><p><a href=\"https://gavinw.me/computing-julia/julia/conditionals.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/comments.html",
+            "url": "https://gavinw.me/computing-julia/julia/comments.html",
+            "title": "Comments",
+            "date_published": "2021-06-13T00:00:00Z",
+            "content_html": "<p>Single line and inline comments begin with <code>#</code> in Julia. Wrap multiple lines of text with <code>#= =#</code> for multiline comments.</p><p><a href=\"https://gavinw.me/computing-julia/julia/comments.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/modules.html",
+            "url": "https://gavinw.me/computing-julia/julia/modules.html",
+            "title": "Modules",
+            "date_published": "2021-06-08T00:00:00Z",
+            "content_html": "<p>Modules help organize code that can be easily used in another program. The <code>MyModule</code> shown below is an example of a user defined module which includes functions from the <code>funcA</code> and <code>funcB</code> files. For this example the module and its associated files are contained in a folder called MyModule.</p><p><a href=\"https://gavinw.me/computing-julia/julia/modules.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/json-parsing.html",
+            "url": "https://gavinw.me/computing-julia/julia/json-parsing.html",
+            "title": "JSON parsing",
+            "date_published": "2021-06-08T00:00:00Z",
+            "content_html": "<p>The <a href="https://juliapackages.com/p/json">JSON.jl package</a> provides JSON parsing and printing capabilities in Julia. See the package's documentation for installation and usage information. The example below parses the <code>vehicles.json</code> file which contains</p><p><a href=\"https://gavinw.me/computing-julia/julia/json-parsing.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/print.html",
+            "url": "https://gavinw.me/computing-julia/julia/print.html",
+            "title": "Print",
+            "date_published": "2021-06-02T00:00:00Z",
+            "content_html": "<p>The <code>print()</code> function prints an undecorated text representation of an object. Similarly, the <code>println()</code> function prints text followed by a newline.</p><p><a href=\"https://gavinw.me/computing-julia/julia/print.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/functions.html",
+            "url": "https://gavinw.me/computing-julia/julia/functions.html",
+            "title": "Functions",
+            "date_published": "2021-05-27T00:00:00Z",
+            "content_html": "<p>In Julia, a function is an object where input arguments provide a return value.</p><p><a href=\"https://gavinw.me/computing-julia/julia/functions.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/loops.html",
+            "url": "https://gavinw.me/computing-julia/julia/loops.html",
+            "title": "Loops",
+            "date_published": "2021-05-25T00:00:00Z",
+            "content_html": "<p>Use a for-loop for repeated tasks and to iterate over arrays.</p><p><a href=\"https://gavinw.me/computing-julia/julia/loops.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/operators.html",
+            "url": "https://gavinw.me/computing-julia/julia/operators.html",
+            "title": "Operators",
+            "date_published": "2021-05-25T00:00:00Z",
+            "content_html": "<p>The arithmetic operators shown below are available in Julia.</p><p><a href=\"https://gavinw.me/computing-julia/julia/operators.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/tuples.html",
+            "url": "https://gavinw.me/computing-julia/julia/tuples.html",
+            "title": "Tuples",
+            "date_published": "2021-05-23T00:00:00Z",
+            "content_html": "<p>A tuple is a fixed-length immutable container represented by parentheses <code>( )</code>. Values in a tuple are accessed with indexing. A single item tuple must contain a comma.</p><p><a href=\"https://gavinw.me/computing-julia/julia/tuples.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/dictionaries.html",
+            "url": "https://gavinw.me/computing-julia/julia/dictionaries.html",
+            "title": "Dictionaries",
+            "date_published": "2021-05-22T00:00:00Z",
+            "content_html": "<p>The <code>Dict()</code> constructor is used to create dictionaries in Julia. A dictionary is constructed using key value pairs separated with <code>=&gt;</code> or as tuples.</p><p><a href=\"https://gavinw.me/computing-julia/julia/dictionaries.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/computing-julia/julia/strings.html",
+            "url": "https://gavinw.me/computing-julia/julia/strings.html",
+            "title": "Strings",
+            "date_published": "2021-05-22T00:00:00Z",
+            "content_html": "<p>Strings can be represented by double quotes <code>" "</code> or by triple double quotes <code>""" """</code>. A character or group of characters are extracted from a string using an index or range. Combining strings can be accomplished with <code>$</code>, <code>string</code>, and <code>*</code>.</p><p><a href=\"https://gavinw.me/computing-julia/julia/strings.html\">Continue reading...</a></p>"
+        }
+    ]
+}

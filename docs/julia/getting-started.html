@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <!-- Highlightjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/julia.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- JSON feed -->
+    <link href="https://gavinw.me/computing-julia/feed.json" rel="alternate" type="application/feed+json" title="Computing Julia">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/computing-julia/styles.css">
+
+    <title>Computing Julia</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+
+        <h1>Getting started</h1>
+        <h6>June 20, 2021</h6>
+        <hr>
+
+        <p>To get started, visit the main Julia website at <a href="https://julialang.org">https://julialang.org</a> and follow their download and installation instructions. Julia is available for macOS, various flavors of Linux, FreeBSD, and Windows. After installation, read the sections below to learn more about the various features of the language.</p>
+<p>Some of the code examples on this site use the <code>julia&gt;</code> prompt to represent a line of executed code. This prompt is part of the Julia REPL which is accessed by entering the <code>julia</code> command in the terminal. As demonstrated in the code block shown below, <code>julia&gt; x = 2.5</code> assigns <code>2.5</code> to the <code>x</code> variable. The execution of this line displays a value of <code>2.5</code> in the REPL. Another example is adding two numbers such as <code>5 + 4.8</code> to get a result of <code>9.8</code>. To exit the REPL enter <code>exit()</code> on a blank line or press Control-D on the keyboard.</p>
+<pre><code class="language-julia">$ julia
+
+# Assign the value 2.5 to x
+julia&gt; x = 2.5
+2.5
+
+# Add two numbers
+julia&gt; 5 + 4.8
+9.8
+
+# Exit the Julia REPL with exit() or Control-D
+julia&gt; exit()
+</code></pre>
+<p>The Julia REPL is also used to install and manage Julia packages. To invoke the package manager environment, enter <code>]</code> from within a REPL session. Use <code>pkg&gt; help</code> to see an overview of the available commands. To exit the package manager, enter a backspace on an empty line or press Control-C on the keyboard.</p>
+<pre><code class="language-julia">$ julia
+
+# Enter the package manager environment
+julia&gt; ]
+
+# Add the Debugger.jl package
+(@v1.6) pkg&gt; add Debugger
+
+# See installed Julia packages
+(@v1.6) pkg&gt; status
+      Status `~/.julia/environments/v1.6/Project.toml`
+  [31a5f54b] Debugger v0.6.8
+  [682c06a0] JSON v0.21.1
+  [2b0e0bc5] LanguageServer v4.0.0
+  [91a5bcdd] Plots v1.16.5
+  [cf896787] SymbolServer v7.0.0
+
+# See list of available commands
+(@v1.6) pkg&gt; help
+</code></pre>
+
+        </div>
+    </div>
+    <div class="row my-5">
+    <div class="col">
+        <p class="text-center small my-5">
+            <a href="https://gavinw.me/computing-julia/">Computing with Julia</a> © 2023 <br>
+            Built by <a href="https://gavinw.me">Gavin Wiggins</a>
+        </p>
+    </div>
+    </div>
+</div>
+</body>
+</html>

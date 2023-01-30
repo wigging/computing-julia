@@ -18,7 +18,7 @@ julia> fruits[2:3]
 2-element Vector{String}:
  "melon"
  "apple"
- ```
+```
 
 An item in an array can be replaced by assigning the index of that item to a new value.
 
