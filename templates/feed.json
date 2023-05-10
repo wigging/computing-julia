@@ -1,8 +1,8 @@
 {
     "version": "https://jsonfeed.org/version/1.1",
     "title": "Computing with Julia",
-    "home_page_url": "https://gavinw.me/computing-julia/",
-    "feed_url": "https://gavinw.me/computing-julia/feed.json",
+    "home_page_url": "https://wigging.me/computing-julia/",
+    "feed_url": "https://wigging.me/computing-julia/feed.json",
     "items": [
     {% for feed in feeds %}
         {
